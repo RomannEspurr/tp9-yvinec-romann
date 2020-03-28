@@ -9,5 +9,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RomannEspurr/tp9-yvinec-romann.git"
+  },
+  "scripts": {
+    "start": "node ./algo.js"
   }
 }

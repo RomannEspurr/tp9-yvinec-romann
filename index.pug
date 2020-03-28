@@ -1,11 +1,35 @@
 html
     body(style="background-image:url(https://www.apyart.com/3011-home_default/violet-cbouteiller.jpg)")
         h1 Requete des utilisateurs
-        div
+        div(class="list")
             ul
                 for val,index in id
-                    li=val+" : "+nbRequest[index]
+                    li="utilisateur "+index+" : "+nbRequest[index]
+        div
+            p Identifiant 
+            input(type="text", id="id")
+        div
+            p A 
+            input(type="text", id="A")
+        div
+            p B 
+            input(type="text", id="B")
+        div
+            input(type="button",id="button",value="send request") 
+        h2 Resultat de la requete
+        div(id="res")
+
+                
     script(type="text/javascript",src="https://code.jquery.com/jquery-3.4.1.min.js")
     script 
-        | setInterval(function(){$.get("http://localhost:3000/refresh",function(data){$("div").html(data)})},1000)
+        |setInterval(function(){$.get("#{refreshLink}",function(data){$(".list").html(data)})},1000)
+        |$("#button").click(function(){
+        |   $.get("#{link}/"+$("#id").val()+"/distance/",{"A":$("#A").val(),"B":$("#B").val()},function(data){
+        |       if((typeof data.erreur)!="undefined"){
+        |           $("#res").html("<p>Erreur : "+data.erreur+"</p>")
+        |       }else{
+        |           $("#res").html("<p>A : "+data.A+"</p><p>B : "+data.B+"</p><p>distance : "+data.distance+"</p>")
+        |       }
+        |   })
+        |})
     
