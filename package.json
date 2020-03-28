@@ -1,0 +1,13 @@
+{
+  "name": "tp9",
+  "version": "1.0.0",
+  "main": "algo.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pug": "^2.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RomannEspurr/tp9-yvinec-romann.git"
+  }
+}

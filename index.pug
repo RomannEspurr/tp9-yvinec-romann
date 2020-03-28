@@ -1,0 +1,11 @@
+html
+    body(style="background-image:url(https://www.apyart.com/3011-home_default/violet-cbouteiller.jpg)")
+        h1 Requete des utilisateurs
+        div
+            ul
+                for val,index in id
+                    li=val+" : "+nbRequest[index]
+    script(type="text/javascript",src="https://code.jquery.com/jquery-3.4.1.min.js")
+    script 
+        | setInterval(function(){$.get("http://localhost:3000/refresh",function(data){$("div").html(data)})},1000)
+    
